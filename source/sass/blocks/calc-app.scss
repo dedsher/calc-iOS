@@ -1,0 +1,28 @@
+.calc-app {
+  color: $color-gainsboro;
+  background-color: $color-nero;
+}
+
+.calc-app__header {
+  width: 100%;
+  padding: 30px;
+  color: $color-gainsboro
+}
+
+.calc-app__logo {
+  font-size: 30px;
+  line-height: 32px;
+}
+
+.calc-app__navigation {
+
+}
+
+.calc-app__main {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.calc-app__calculator {
+
+}
