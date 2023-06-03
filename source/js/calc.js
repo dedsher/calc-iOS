@@ -36,15 +36,6 @@ function varDetermine(button) {
   let variable = button.textContent;
 
   if (variable === '=') {
-    if (x1 === '1488') {
-      alert('Марк и Яша любят пенисы')
-    }
-    if (x1 === '20.08') {
-      let password = prompt('Введите пароль: ');
-      if (password === 'vika14maks08') {
-        alert('ТЫ САМАЯ ЛУЧШАЯ КОТЯ, Я ТЕБЯ ЛЮБЛЮЮЮ!!!!<3')
-      }
-    }
     calculations();
 
     Render(x1);
