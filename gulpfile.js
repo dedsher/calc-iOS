@@ -6,9 +6,6 @@ import csso from 'postcss-csso';
 import rename from 'gulp-rename';
 import htmlmin from 'gulp-htmlmin';
 import terser from 'gulp-terser';
-import squoosh from 'gulp-libsquoosh';
-import svgo from 'gulp-svgmin';
-import {stacksvg} from 'gulp-stacksvg';
 import {deleteAsync} from 'del';
 import autoprefixer from 'autoprefixer';
 import browser from 'browser-sync';
@@ -47,75 +44,11 @@ const scripts = () => {
 }
 
 
-// Images
-
-// const optimizeImages = () => {
-//   return gulp.src([
-//     'source/img/content/*.{jpg,png}',
-//     'source/img/decor/*.{jpg,png}'
-//   ], {
-//     base: 'source'
-//   })
-//     .pipe(squoosh())
-//     .pipe(gulp.dest('build'))
-// }
-
-// const copyImages = () => {
-//   return gulp.src([
-//     'source/img/content/*.{jpg,png}',
-//     'source/img/decor/*.{jpg,png}'
-//   ], {
-//     base: 'source'
-//   })
-//     .pipe(gulp.dest('build'))
-// }
-
-
-// Webp
-
-// const createWebp = () => {
-//   return gulp.src([
-//     'source/img/content/*.{jpg,png}',
-//     'source/img/decor/*.{jpg,png}'
-//   ], {
-//     base: 'source'
-//   })
-//     .pipe(squoosh({
-//       webp: {}
-//     }))
-//     .pipe(gulp.dest('build'))
-// }
-
-
-// Svg
-
-const createStack = () => {
-  return gulp.src('source/img/stack/*.svg')
-    .pipe(svgo())
-    .pipe(stacksvg({ output: 'sprite' }))
-    .pipe(gulp.dest('build/img'))
-}
-
-// const svgOptimize = () => {
-//   return gulp.src('source/img/svg/*.svg')
-//     .pipe(svgo())
-//     .pipe(gulp.dest('build/img/svg'))
-// }
-
-// const svgCopy = () => {
-//   return gulp.src('source/img/svg/*.svg')
-//     .pipe(gulp.dest('build/img/svg'))
-// }
-
-
 // Copy
 
 const copy = (done) => {
   gulp.src([
     'source/fonts/*.otf',
-    // 'source/*.ico',
-    // 'source/img/favicons/*.*',
-    // 'source/manifest.webmanifest'
   ], {
     base: 'source'
   })
@@ -165,13 +98,10 @@ const watcher = () => {
 export const build = gulp.series(
   clean,
   copy,
-  // optimizeImages,
-  // svgOptimize,
   gulp.parallel(
     styles,
     html,
     scripts,
-    // createWebp,
     createStack
   )
 )
@@ -180,13 +110,10 @@ export const build = gulp.series(
 export default gulp.series(
   clean,
   copy,
-  // copyImages,
-  // svgCopy,
   gulp.parallel(
     styles,
     html,
     scripts,
-    // createWebp,
     createStack
   ),
   gulp.series(
