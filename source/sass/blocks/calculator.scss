@@ -58,6 +58,8 @@
   border: none;
   border-radius: 35px;
   cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
 }
 
 .calculator__button--zero {
@@ -69,13 +71,39 @@
 .calculator__button--digit {
   color: $color-default-white;
   background-color: $color-matterhorn;
+
+  &:hover {
+    background-color: lighten($color-matterhorn, 20);
+  }
+
+  &:active {
+    background-color: lighten($color-matterhorn, 10);
+  }
 }
 
 .calculator__button--operator {
   color: $color-default-white;
   background-color: $color-dark-orange;
+
+  &:hover {
+    background-color: lighten($color-dark-orange, 20);
+  }
+
+  &:focus {
+    color: $color-dark-orange;
+    background-color: $color-default-white;
+  }
 }
 
 .calculator__button--func {
-  color: $color-matterhorn;
+  color: $color-default-black;
+  background-color: $color-dark-gray;
+
+  &:hover {
+    background-color: lighten($color-dark-gray, 20);
+  }
+
+  &:active {
+    background-color: lighten($color-dark-gray, 10);
+  }
 }
