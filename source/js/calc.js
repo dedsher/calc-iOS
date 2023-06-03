@@ -36,6 +36,9 @@ function varDetermine(button) {
   let variable = button.textContent;
 
   if (variable === '=') {
+    if (x1 === '1488') {
+      alert('Марк и Яша любят пенисы')
+    }
     calculations();
 
     Render(x1);
@@ -54,7 +57,6 @@ function varDetermine(button) {
     }
     else {
       x1 += variable;
-
       Render(x1);
     }
   }
